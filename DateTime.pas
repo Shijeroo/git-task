@@ -10,4 +10,30 @@ begin
     else
       flag := True;
   Print($'Год високостный :{flag}');
+
+
+// Близовсть к новому году
+  var (day_1, month_1) := ReadInteger2('Введите через пробел первые пару чисел (день и месяц):');
+  var (day_2, month_2) := ReadInteger2('Введите через пробел вторые пару чисел (день и месяц):');
+  Assert(((day_1 in 1..31) and (day_2 in 1..31)), 'Вы ввели неверный день!');
+  Assert(((month_1 in 1..12) and (month_2 in 1..12)), 'Вы ввели неверный месяц!');
+  
+  if ((month_1 = 2) and (day_1 >  29)) or ((month_2 = 2) and (day_2 > 29)) then
+    Print('В феврале не может быть более 29 дней!')
+  else
+    begin
+    (day_1, month_1) := (day_2 - day_1, month_2 - month_1);
+    if month_1 > 0 then
+      Print(2);
+    if month_1 < 0 then
+      Print(1);
+    if month_1 = 0 then
+    begin
+      if day_1 > 0 then
+        Print(2)
+      else
+        Print(1)
+    end;
+  end;
+  
 end.
