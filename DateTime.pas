@@ -35,5 +35,11 @@ begin
         Print(1)
     end;
   end;
-  
+
+
+//кол-во дней в введённом ранее году
+  var count := 365;
+  if flag then
+    count += 1;
+  Print($'Кол-во дней в году {count}');
 end.
