@@ -42,4 +42,26 @@ begin
   if flag then
     count += 1;
   Print($'Кол-во дней в году {count}');
+
+
+//кол-во дней между годами
+  var (year1, year2) := ReadInteger2('Введите первый и второй год: ');
+  Assert((year1 > 0) and (year2 > 0), 'Год не может быть отрицательным');
+  Assert(year1 <= year2, 'Расположите года по возрастанию');
+  var (days, sum) := (365, 0);
+  
+  for var i := year1 to year2 do
+  begin
+    if i.Divs(4) then
+      if i.Divs(100) and not i.Divs(400) then
+        sum += days
+      else
+        sum += days + 1
+    else
+      sum += days;
+  end;
+  
+  Print($'Кол-во дней = {sum}');
+
+  
 end.
