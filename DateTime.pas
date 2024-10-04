@@ -10,4 +10,6 @@ begin
     else
       flag := True;
   Print($'Год високостный :{flag}');
+
+Println('В одной минуте 60 секунд');
 end.
